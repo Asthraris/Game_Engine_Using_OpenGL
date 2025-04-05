@@ -1,11 +1,11 @@
 # **Asthrasine**  
-_A High-Performance Game Engine using OpenGL 4.5_  
+_A High-Performance Game Engine using **OpenGL 4.6**_  
 
-Asthrasine is a modern, high-performance game engine built on **OpenGL 4.5**, designed for real-time rendering with a flexible **Entity-Scene Component (ESC) system**. It integrates **ImGui** for a powerful, real-time UI and features a **graph-like scene manager** for efficient entity handling. The engine supports **dynamic lighting with real-time UI adjustments**, making it an ideal foundation for game development, simulation, and visualization projects.  
+Asthrasine is a modern, high-performance game engine built on **OpenGL 4.6**, designed for real-time rendering with a flexible **Entity-Scene Component (ESC) system**. It integrates **ImGui** for a powerful, real-time UI and features a **graph-like scene manager** for efficient entity handling. The engine supports **dynamic lighting with real-time UI adjustments**, making it an ideal foundation for game development, simulation, and visualization projects.  
 
 ## **Key Features**  
 
-✅ **OpenGL 4.5 Renderer** – Modern rendering pipeline for efficient, high-quality rendering.  
+✅ **OpenGL 4.6 Renderer** – Modern rendering pipeline for efficient, high-quality rendering.  
 ✅ **ESC-Based Scene Management** – Graph-like entity management for optimal flexibility and performance.  
 ✅ **Four Entity Types** – Static, Dynamic, Instanced, and Light entities for structured scene representation.  
 ✅ **Dynamic Lighting System** – Real-time adjustable lights through UI, enhancing scene realism.  
@@ -20,9 +20,12 @@ Asthrasine is a modern, high-performance game engine built on **OpenGL 4.5**, de
 Asthrasine is structured into several core modules to maintain clean, scalable, and efficient code:  
 
 ### 1️⃣ **Rendering System**  
-- Uses **OpenGL 4.5** with a forward or deferred rendering pipeline.  
+- Uses **OpenGL 4.6** with a forward or deferred rendering pipeline.
+- Implements **MultiDrawInstanceIndirect** draws entire scene in one drawcall reducing CPU -GPU conversion delay.
+- Switched from 4.5 to 4.6 for latest GLSL Inbuilt Variables like gl_BaseInstance . 
 - Implements **Shader Storage Buffer Objects (SSBOs)** for handling large amounts of dynamic data.  
-- Supports real-time dynamic lighting.  
+- Supports real-time dynamic lighting.
+- Using Bin-Phong Lighting system . 
 
 ### 2️⃣ **Entity-Scene Component (ESC) System**  
 - Unlike traditional ECS, Asthrasine uses a **graph-based scene structure** for managing objects.  
@@ -47,7 +50,7 @@ Asthrasine is structured into several core modules to maintain clean, scalable, 
 
 | Library | Purpose |  
 |---------|---------|  
-| **OpenGL 4.5** | High-performance rendering API |  
+| **OpenGL 4.6** | High-performance rendering API |  
 | **GLAD** | OpenGL function loader |  
 | **GLFW** | Window management and input handling |  
 | **GLM** | Mathematics library for graphics applications |  
@@ -59,7 +62,7 @@ Asthrasine is structured into several core modules to maintain clean, scalable, 
 
 ### **Prerequisites**  
 - C++ compiler (g++ or Clang recommended)  
-- OpenGL 4.5+ supported GPU  
+- OpenGL 4.6+ supported GPU  
 - **CMake** (for building the project)  
 
 ### **Build Instructions**  
